@@ -34,7 +34,7 @@ drogon_ctl create project demo
 # (ビルドディレクトリが無ければ作成)
 cd ./dmeo/build
 # Makefile作成
-cmake
+cmake ..
 # ビルド&コンパイル
 make
 # 実行
