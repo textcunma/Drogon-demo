@@ -1,3 +1,6 @@
+# buildディレクトリ
+demo/build/
+
 # Prerequisites
 *.d
 

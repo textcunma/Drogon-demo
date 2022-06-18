@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <%c++
+        // c++のコードが記述可能な範囲
+        
+        // dataからunorder_mapとしてパラメータを取得
+        auto para = @@.get<std::unordered_map<std::string, std::string>>("parameters");
+
+        // 適当に変数宣言する
+        auto name = "Drogon Inc.";
+        auto date = "2022.6.18";
+        auto text = "hogehoge";
+    %>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>[[ title ]]</title>
+    </head>
+
+    <body>
+
+    <!-- 変数展開はどちらでも良い -->
+    <p>Hello, {% name %}</p>
+    <p>Date: <%c++ $$ << date; %></p>
+    <p>サンプル文字: <%c++ $$ << text; %></p>
+
+    <%c++ if(para.size()>0){%>
+    <H1>Parameters</H1>
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>value</th>
+        </tr>
+        <!-- イテレーションループでパラメータを展開 -->
+        <%c++ for(auto iter:para){ %>
+        <tr>
+            <td>{% iter.first %}</td> 
+            <td><%c++ $$<<iter.second;%></td>
+        </tr>
+        <%c++ } // endfor%>
+    </table>
+    <%c++ }else{ %>
+    <H1>no parameter</H1>
+    <%c++ } // endif %>
+    </body>
+</html>
