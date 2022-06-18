@@ -31,6 +31,7 @@ drogon_ctl -v
 # プロジェクト作成コマンド
 drogon_ctl create project demo
 # プロジェクトディレクトリのビルドに移動
+# (ビルドディレクトリが無ければ作成)
 cd ./dmeo/build
 # Makefile作成
 cmake
